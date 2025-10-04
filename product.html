@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Bestee Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bestee<span>Shop</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon">
+            <span class="cart-count">0</span>
+            <img src="images/cartone.png" alt="Cart" width="28" height="28">
+        </div>
+    </header>
+    <main class="main-content product-detail-page">
+        <div class="product-detail-container" id="productDetail">
+            <!-- Product details will be loaded here -->
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 Bestee Shop. All rights reserved.
+    </footer>
+    <script src="script.js"></script>
+    <script>
+    // Dynamic product detail logic
+    function getProducts() {
+        const stored = localStorage.getItem('products');
+        if (stored) {
+            try {
+                const arr = JSON.parse(stored);
+                if (Array.isArray(arr) && arr.length > 0) return arr;
+            } catch {}
+        }
+        // Default products (same as in script.js)
+        return [
+            { title: 'Wireless Headphones', price: 59.99, img: 'images/head-phones.jpg', desc: 'High-quality wireless headphones with noise cancellation and long battery life. Perfect for music lovers and professionals.' },
+            { title: 'Smart Watch', price: 89.99, img: 'images/Untitled.jpeg', desc: 'A stylish smart watch with fitness tracking and notifications.' },
+            { title: 'Bluetooth Speaker', price: 39.99, img: 'images/images.jpeg', desc: 'Portable Bluetooth speaker with deep bass and long battery.' },
+            { title: 'Fitness Tracker', price: 29.99, img: 'images/Untitled.jpeg', desc: 'Track your steps, sleep, and heart rate with this fitness tracker.' },
+            { title: 'Gaming Mouse', price: 24.99, img: 'images/images (copy 1).jpeg', desc: 'Ergonomic gaming mouse with customizable buttons and RGB.' },
+            { title: 'Laptop Stand', price: 34.99, img: 'images/images.jpeg', desc: 'Adjustable laptop stand for better posture and cooling.' },
+            { title: 'USB-C Hub', price: 19.99, img: 'images/Untitled.jpeg', desc: 'Expand your laptop ports with this multi-port USB-C hub.' },
+            { title: 'Portable SSD', price: 79.99, img: 'images/images (copy 1).jpeg', desc: 'Fast and reliable portable SSD for all your files.' },
+            { title: 'Noise Cancelling Earbuds', price: 49.99, img: 'images/images.jpeg', desc: 'Wireless earbuds with active noise cancellation.' },
+            { title: 'Smart Lamp', price: 27.99, img: 'images/Untitled.jpeg', desc: 'Smart lamp with adjustable color and brightness.' }
+        ];
+    }
+
+    // Get product index from query string (?id=2)
+    function getProductIndex() {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        return id && !isNaN(id) ? parseInt(id) : 0;
+    }
+
+    function renderProductDetail() {
+        const products = getProducts();
+        const idx = getProductIndex();
+        const prod = products[idx] || products[0];
+        const detail = document.getElementById('productDetail');
+        detail.innerHTML = `
+            <img src="${prod.img}" alt="${prod.title}" class="product-detail-img">
+            <div class="product-detail-info">
+                <h1>${prod.title}</h1>
+                <p class="price">$${prod.price.toFixed(2)}</p>
+                <p>${prod.desc || ''}</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        `;
+        // Attach add-to-cart event
+        detail.querySelector('.add-to-cart').onclick = function() {
+            // Use same addToCart logic as script.js
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const cartIdx = cart.findIndex(item => item.title === prod.title);
+            if (cartIdx > -1) {
+                cart[cartIdx].qty += 1;
+            } else {
+                cart.push({ title: prod.title, price: prod.price, img: prod.img, qty: 1 });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            // Update cart count in header
+            document.querySelectorAll('.cart-count').forEach(el => el.textContent = cart.reduce((sum, item) => sum + item.qty, 0));
+            detail.querySelector('.add-to-cart').textContent = 'Added!';
+            detail.querySelector('.add-to-cart').disabled = true;
+            setTimeout(() => {
+                detail.querySelector('.add-to-cart').textContent = 'Add to Cart';
+                detail.querySelector('.add-to-cart').disabled = false;
+            }, 1200);
+        };
+    }
+
+    renderProductDetail();
+    </script>
+</body>
+</html>

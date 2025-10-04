@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEweb</title>
+
+    <link rel="stylesheet" href="style.css">
+    <!-- ...existing code... -->
+                <header>
+                    <div class="logo">Bestee<span>Shop</span></div>
+                    <nav>
+                        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+                        <ul class="nav-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#products">Products</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="admin.html">Login</a></li>
+                        </ul>
+                    </nav>
+                    <div class="cart-icon">
+                        <span class="cart-count">0</span>
+                        <img src="images/carttwo.png" alt="Cart" width="28" height="28">
+                    </div>
+                </header>
+                <div class="main-layout">
+                    <aside class="sidebar" id="sidebar">
+                        <button class="close-sidebar" style="display:none" onclick="closeSidebar()">&times;</button>
+                        <h2>Categories</h2>
+                        <ul>
+                            <li><a href="#">All Products</a></li>
+                            <li><a href="#">Electronics</a></li>
+                            <li><a href="#">Fashion</a></li>
+                            <li><a href="#">Home & Living</a></li>
+                            <li><a href="#">Toys</a></li>
+                            <li><a href="#">Sports</a></li>
+                        </ul>
+                    </aside>
+                    <div class="sidebar-backdrop" onclick="closeSidebar()"></div>
+                    <main class="main-content">
+                        <section class="hero">
+                            <div class="hero-text">
+                                <h1>Welcome to Bestee Shop</h1>
+                                <p>Your one-stop shop for the best products at unbeatable prices.</p>
+                                <a href="#products" class="btn-primary">Shop Now</a>
+                            </div>
+                            <img src="images/hero-shoping.jpg" alt="Shop Banner" class="hero-img">
+                        </section>
+                        <section id="products" class="products-section">
+                            <h2>Featured Products</h2>
+                            <input type="text" id="searchInput" placeholder="Search products" class="search-input">
+                            <div class="products-grid">
+                                <div class="product-card" data-title="Wireless Headphones">
+                                    <a href="product.html?id=0"><img src="images/head-phones.jpg" alt="Wireless Headphones"></a>
+                                    <h3>Wireless Headphones</h3>
+                                    <p class="price">$59.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                                <div class="product-card" data-title="Smart Watch">
+                                    <a href="product.html?id=1"><img src="images/smartwacth.png" alt="Smart Watch"></a>
+                                    <h3>Smart Watch</h3>
+                                    <p class="price">$89.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+
+                                <div class="product-card" data-title="Bluetooth Speaker">
+                                    <a href="product.html?id=2"><img src="images/bluetooth-speaker.png" alt="Bluetooth Speaker"></a>
+                                    <h3>Bluetooth Speaker</h3>
+                                    <p class="price">$39.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                                <div class="product-card" data-title="Fitness Tracker">
+                                    <a href="product.html?id=3"><img src="images/fitness.png" alt="Fitness Tracker"></a>
+                                    <h3>Fitness Tracker</h3>
+                                    <p class="price">$29.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                                <div class="product-card" data-title="Gaming Mouse">
+                                    <a href="product.html?id=4"><img src="images/gaming-mouse.png" alt="Gaming Mouse"></a>
+                                    <h3>Gaming Mouse</h3>
+                                    <p class="price">$24.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                                <div class="product-card" data-title="Laptop Stand">
+                                    <a href="product.html?id=5"><img src="images/laptop-stand.png" alt="Laptop Stand"></a>
+                                    <h3>Laptop Stand</h3>
+                                    <p class="price">$34.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                                <div class="product-card" data-title="USB-C Hub">
+                                    <a href="product.html?id=6"><img src="images/USBc.png" alt="USB-C Hub"></a>
+                                    <h3>USB-C Hub</h3>
+                                    <p class="price">$19.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                                <div class="product-card" data-title="Portable SSD">
+                                    <a href="product.html?id=7"><img src="images/1756627120530.Screenshot_20250831-070046.png" alt="Portable SSD"></a>
+                                    <h3>Portable SSD</h3>
+                                    <p class="price">$79.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                                <div class="product-card" data-title="Noise Cancelling Earbuds">
+                                    <a href="product.html?id=8"><img src="images/earbuds.png" alt="Noise Cancelling Earbuds"></a>
+                                    <h3>Noise Cancelling Earbuds</h3>
+                                    <p class="price">$49.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                                <div class="product-card" data-title="Smart Lamp">
+                                    <a href="product.html?id=9"><img src="images/lamp.png" alt="Smart Lamp"></a>
+                                    <h3>Smart Lamp</h3>
+                                    <p class="price">$27.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="hero">
+                            <div class="hero-text">
+                                <h2>All you need is here </h2>
+                                <p>Your one-stop shop for the best products at unbeatable prices.</p>
+                                <a href="#products" class="btn-primary">Shop Now</a>
+                            </div>
+                            <img src="images/hero-man.jpg" alt="Shop Banner" class="hero-img">
+                        </section>
+                        <section>
+                            <div class="product-card" data-title="USB-C Hub">
+                                    <a href="product.html?id=6"><img src="images/USBc.png" alt="USB-C Hub"></a>
+                                    <h3>USB-C Hub</h3>
+                                    <p class="price">$19.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                                <div class="product-card" data-title="Portable SSD">
+                                    <a href="product.html?id=7"><img src="images/1756627120530.Screenshot_20250831-070046.png" alt="Portable SSD"></a>
+                                    <h3>Portable SSD</h3>
+                                    <p class="price">$79.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                                <div class="product-card" data-title="Noise Cancelling Earbuds">
+                                    <a href="product.html?id=8"><img src="images/earbuds.png" alt="Noise Cancelling Earbuds"></a>
+                                    <h3>Noise Cancelling Earbuds</h3>
+                                    <p class="price">$49.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                                <div class="product-card" data-title="Smart Lamp">
+                                    <a href="product.html?id=9"><img src="images/lamp.png" alt="Smart Lamp"></a>
+                                    <h3>Smart Lamp</h3>
+                                    <p class="price">$27.99</p>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </div>
+                        </section>
+                        <section id="about" class="about-section">
+                            <h2>About Us</h2>
+                            <p>Bestee Shop is dedicated to providing high-quality products and excellent customer service. We carefully select our products to ensure you get the best value for your money.</p>
+                        </section>
+                        <section id="contact" class="contact-section">
+                            <h2>Contact</h2>
+                            <p>Have questions? <a href="mailto:info@besteeshop.com">Email us</a> and our team will get back to you soon.</p>
+                        </section>
+                    </main>
+                </div>
+                <footer>
+                    &copy; 2025 Bestee Shop. All rights reserved.
+                </footer>
+                <script src="script.js"></script>
+                <script>
+                function closeSidebar() {
+                    document.getElementById('sidebar').classList.remove('active');
+                }
+                // Show close button only on mobile
+                function handleSidebarCloseBtn() {
+                    var btn = document.querySelector('.close-sidebar');
+                    if (!btn) return;
+                    if (window.innerWidth <= 900) {
+                        btn.style.display = 'block';
+                    } else {
+                        btn.style.display = 'none';
+                    }
+                }
+                window.addEventListener('resize', handleSidebarCloseBtn);
+                window.addEventListener('DOMContentLoaded', handleSidebarCloseBtn);
+                </script>
+            </body>
+            </html>
